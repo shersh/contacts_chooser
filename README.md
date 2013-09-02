@@ -8,7 +8,7 @@ This control is fully customizable via template bindings and styling.
 
 Usage:
 
-<controls2:ContactsChooser x:Name="chooser"
+&lt;controls2:ContactsChooser x:Name="chooser"
                                    Grid.Row="1"
                                    Margin="0,24,0,0"
                                    HeaderText="Partipants"
@@ -16,7 +16,7 @@ Usage:
                                    PopupBackground="Transparent"
                                    PopupBorderBrush="Transparent"
                                    SearchCommand="{Binding SearchCommand}"
-                                   SearchItemsSource="{Binding SearchedUsers}"/>
+                                   SearchItemsSource="{Binding SearchedUsers}"/&gt;
                                    
                                    
 Where ItemsSource is already selected contacts, SearchItemsSource is collection that used when serching command is compled for showing available contacts for selecting.
