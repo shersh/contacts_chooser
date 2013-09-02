@@ -1,4 +1,4 @@
-contacts_chooser
+Contacts chooser
 ================
 
 Contact chooser for Windows Phone platform. (Like control in native email application)
@@ -6,9 +6,10 @@ Contact chooser for Windows Phone platform. (Like control in native email applic
 
 This control is fully customizable via template bindings and styling. 
 
-Usage:
+###Usage:
 
-&lt;controls2:ContactsChooser x:Name="chooser"
+```C#
+<controls2:ContactsChooser x:Name="chooser" 
                                    Grid.Row="1"
                                    Margin="0,24,0,0"
                                    HeaderText="Partipants"
@@ -16,14 +17,14 @@ Usage:
                                    PopupBackground="Transparent"
                                    PopupBorderBrush="Transparent"
                                    SearchCommand="{Binding SearchCommand}"
-                                   SearchItemsSource="{Binding SearchedUsers}"/&gt;
+                                   SearchItemsSource="{Binding SearchedUsers}">
+```
                                    
-                                   
-Where ItemsSource is already selected contacts, SearchItemsSource is collection that used when serching command is compled for showing available contacts for selecting.
-SearchCommand is ICommand for searching implementaion. You can use it for searching via web-service for example.
+Where `ItemsSource` is already selected contacts, `SearchItemsSource` is collection that used when serching command is compled for showing available contacts for selecting.
+`SearchCommand` is `ICommand` for searching implementaion. You can use it for searching via web-service for example.
 
-See Sample project for more information.
+See `Sample` project for more information.
 
-Known Issue:
+###Known Issue:
 
 DataContext for this control should be set when Page.Loaded event fired. If it's problem I'll fix it. 
