@@ -1,0 +1,79 @@
+﻿<phone:PhoneApplicationPage x:Class="ChooserSample.MainPage"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:controls2="clr-namespace:Acceron.Core.Controls;assembly=Acceron.Core.Controls"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"
+                            Foreground="{StaticResource PhoneForegroundBrush}"
+                            Orientation="Portrait"
+                            SupportedOrientations="Portrait"
+                            d:DesignHeight="768"
+                            d:DesignWidth="480"
+                            shell:SystemTray.IsVisible="True"
+                            mc:Ignorable="d">
+
+    <!--  LayoutRoot is the root grid where all page content is placed  -->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <controls2:ContactsChooser x:Name="chooser"
+                                   Grid.Row="1"
+                                   Margin="0,24,0,0"
+                                   HeaderText="Partipants"
+                                   ItemsSource="{Binding InvitedUsers}"
+                                   PopupBackground="Transparent"
+                                   PopupBorderBrush="Transparent"
+                                   SearchCommand="{Binding SearchCommand}"
+                                   SearchItemsSource="{Binding SearchedUsers}">
+            <controls2:ContactsChooser.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="0,0,12,0"
+                               FontFamily="Segoe WP Semibold"
+                               FontSize="20"
+                               Foreground="Gray"
+                               Text="{Binding}" />
+                </DataTemplate>
+            </controls2:ContactsChooser.HeaderTemplate>
+            <controls2:ContactsChooser.PopupItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,0,0,12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="99" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Canvas Width="99"
+                                Height="99"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="#FF0A1016"
+                                UseLayoutRounding="False">
+                            <Path Canvas.Left="8"
+                                  Canvas.Top="10"
+                                  Width="83"
+                                  Height="97"
+                                  Data="F1M81.886,88.911L81.989,88.911C81.989,88.911,81.964,89.135,81.887,88.915z M36.533,88.911L46.325,88.911 44.515,88.935C41.769,88.955,38.229,88.924,36.59,88.911z M41.727,39.437C41.727,39.437 47.627,45.341 47.627,45.341 47.627,45.341 41.727,75.253 41.727,75.253 41.727,75.253 35.827,45.341 35.827,45.341 35.827,45.341 41.727,39.437 41.727,39.437z M55.337,39.02C61.072,39.02 65.137,39.02 65.137,39.02 71.971,39.02 76.42,45.063 77.511,51.66 77.511,51.66 79.541,65.1 80.963,81.029 81.386,85.766 81.643,87.737 81.793,88.523L81.886,88.911 46.325,88.911 46.383,88.91C47.474,88.886 48.198,88.845 48.218,88.779 49.761,83.805 51.266,75.913 52.317,67.729 54.112,53.747 55.199,39.02 55.337,39.02z M18.236,39.02C18.236,39.02 22.18,39.02 27.997,39.02 28.199,39.02 34.143,88.906 35.759,88.906L36.533,88.911 1.013,88.911C1.013,88.911 5.862,51.66 5.862,51.66 6.71,44.699 11.402,39.02 18.236,39.02z M41.578,1.981C50.442,1.981 57.627,9.172 57.627,18.042 57.627,26.913 50.442,34.104 41.578,34.104 32.715,34.104 25.53,26.913 25.53,18.042 25.53,9.172 32.715,1.981 41.578,1.981z"
+                                  Fill="#3A3F43" />
+                        </Canvas>
+                        <Image Width="99" Height="99" />
+                        <TextBlock Grid.Column="1"
+                                   Margin="12,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding FullName}" />
+                    </Grid>
+                </DataTemplate>
+            </controls2:ContactsChooser.PopupItemTemplate>
+            <controls2:ContactsChooser.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,0,12,0" Orientation="Horizontal">
+                        <TextBlock Text="{Binding FullName}" />
+                        <TextBlock Text=";" />
+                    </StackPanel>
+                </DataTemplate>
+            </controls2:ContactsChooser.ItemTemplate>
+
+        </controls2:ContactsChooser>
+    </Grid>
+
+</phone:PhoneApplicationPage>
